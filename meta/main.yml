@@ -33,9 +33,9 @@ galaxy_info:
   # platforms is a list of platforms, and each platform has a name and a list of versions.
   #
   platforms:
-    - name: Ubuntu
-      versions:
-        - 16.4
+  - name: Ubuntu
+    versions:
+    - xenial 
 
 
   # Below are all categories currently available. Just as with
