@@ -1,0 +1,30 @@
+---
+# tasks file for jenkins
+
+- name: Add Jenkins key
+  apt_key:
+    url: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
+    state: present
+
+
+- name: add jenkins repo  
+  apt_repository:
+    repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+    state: present
+
+
+- name: installing jenkins
+  apt:
+    name: jenkins
+    state: present
+
+- name: view password jenkins
+  shell: /bin/more /var/lib/jenkins/secrets/initialAdminPassword
+  register: result
+  tags: jenkins_pass
+
+- name: show pass
+  debug:
+    var: result
+    verbosity: 2
+  tags: jenkins_pass
